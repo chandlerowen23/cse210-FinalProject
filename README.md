@@ -16,6 +16,7 @@
 # 4. levels
 # 5. player name
 # 6. high score
+# 7. bernie throws mittens
 #
 # What is your timeline?
 # March 3rd to march 31st
