@@ -1,7 +1,9 @@
 # cse210-FinalProject
 #
+# Resources
+# https://coderslegacy.com/python/python-pygame-tutorial/
+#
 # What program are we going to create?
-# 
 # We are going to create galaga with corona virus enemies and bernie sanders throwing masks to kill the virus.
 # We will add levels and bosses that fire back at the player.
 #
