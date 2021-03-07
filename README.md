@@ -32,4 +32,8 @@
 # The program must be able to be run from the command line.
 # The program must be entered in the end-of-course contest.
 #
-#
+
+Authors
+
+Chandler Owen, owenc@byui.edu 
+Christian Josue Martinez mar16125@byui.edu
