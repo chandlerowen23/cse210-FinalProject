@@ -6,7 +6,7 @@ pygame.font.init()
 
 WIDTH, HEIGHT = 750, 750
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Space Shooter Tutorial")
+pygame.display.set_caption("Covid-19 Space Battle")
 
 # Load images
 RED_SPACE_SHIP = pygame.image.load(os.path.join("assets", "cov.png"))
@@ -24,6 +24,10 @@ YELLOW_LASER = pygame.image.load(os.path.join("assets", "pixel_laser_yellow.png"
 
 # Background
 BG = pygame.transform.scale(pygame.image.load(os.path.join("assets", "background-black.png")), (WIDTH, HEIGHT))
+
+#Colors
+White = (255,255,255)
+
 
 class Laser:
     def __init__(self, x, y, img):
@@ -152,7 +156,7 @@ def main():
     run = True
     FPS = 60
     level = 0
-    lives = 5
+    lives = 3
     main_font = pygame.font.SysFont("comicsans", 50)
     lost_font = pygame.font.SysFont("comicsans", 60)
 
@@ -243,20 +247,63 @@ def main():
 
         player.move_lasers(-laser_vel, enemies)
 
-def main_menu():
-    title_font = pygame.font.SysFont("comicsans", 70)
+def info_menu():
+    title_font = pygame.font.SysFont("comicsans", 50)
+    text_font = pygame.font.SysFont("comicsans", 30)
     run = True
     while run:
         WIN.blit(BG, (0,0))
-        title_label = title_font.render("Press the mouse to begin...", 1, (255,255,255))
-        WIN.blit(title_label, (WIDTH/2 - title_label.get_width()/2, 350))
+        title_label = title_font.render("Instructions", 1, White)
+        WIN.blit(title_label, (WIDTH/2 - title_label.get_width()/2, 100))
+        text_label1 = text_font.render("You suddenly find yourself in space and reincarnated as...", 1, White)
+        WIN.blit(text_label1, (WIDTH/2 - text_label1.get_width()/2, 250))
+        text_label2 = text_font.render("Bernie Sanders!", 1, White)
+        WIN.blit(text_label2, (WIDTH/2 - text_label2.get_width()/2, 280))
+        text_label3 = text_font.render("You have a mission to prevent the spead of covid-19 throughout the galaxy!", 1, White)
+        WIN.blit(text_label3, (WIDTH/2 - text_label3.get_width()/2, 310))
+        text_label4 = text_font.render("Difficulty will increase with levels and covid-19 cells shoot back at YOU!", 1, White)
+        WIN.blit(text_label4, (WIDTH/2 - text_label4.get_width()/2, 340))
+        text_label5 = text_font.render("Will you rise to the challenge?", 1, White)
+        WIN.blit(text_label5, (WIDTH/2 - text_label5.get_width()/2, 370))
+        text_label6 = text_font.render("Movement: W = Up, A = Left, S = Down, D = Right", 1, White)
+        WIN.blit(text_label6, (WIDTH/2 - text_label6.get_width()/2, 400))
+        exit_label = text_font.render("Press the Mouse to return to menu..", 1, White)
+        WIN.blit(exit_label, (WIDTH/2 - exit_label.get_width()/2, 650))
+        pygame.display.update()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                main_menu()
+
+def main_menu():
+    title_font = pygame.font.SysFont("comicsans", 50)
+    game_name = pygame.font.SysFont("Comicsans", 80)
+    run = True
+    while run:
+        WIN.blit(BG, (0,0))
+        title_label = game_name.render("COVID-19 Bernie Defense", 1, (225,0,0))
+        WIN.blit(title_label, (WIDTH/2 - title_label.get_width()/2, 150))
+        start_label = title_font.render("Press the mouse to begin", 1, White)
+        info_label = title_font.render("Press enter for Instruction", 1, White)
+        WIN.blit(start_label, (WIDTH/2 - start_label.get_width()/2, 300))
+        WIN.blit(info_label, (WIDTH/2 - info_label.get_width()/2, 400))
+        exit_label = title_font.render("Press Q to Quit", 1, White)
+        WIN.blit(exit_label, (WIDTH/2 - exit_label.get_width()/2, 600))
         pygame.display.update()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 main()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RETURN:
+                    info_menu()
+                if event.key == pygame.K_q:
+                    run = False
     pygame.quit()
 
 
 main_menu()
+
+#add main and call main_menu in seperate file
