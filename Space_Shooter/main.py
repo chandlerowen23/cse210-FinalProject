@@ -17,12 +17,12 @@ BLUE_SPACE_SHIP = pygame.image.load(os.path.join("assets", "cov.png"))
 YELLOW_SPACE_SHIP = pygame.image.load(os.path.join("assets", "bernie.png"))
 
 # Lasers
-RED_LASER = pygame.image.load(os.path.join("assets", "pixel_laser_red.png"))
-GREEN_LASER = pygame.image.load(os.path.join("assets", "pixel_laser_green.png"))
-BLUE_LASER = pygame.image.load(os.path.join("assets", "pixel_laser_blue.png"))
+RED_LASER = pygame.transform.scale(pygame.image.load(os.path.join("assets", "red_laser.png")), (40,40))
+GREEN_LASER = pygame.transform.scale(pygame.image.load(os.path.join("assets", "green_laser.png")), (40,40))
+BLUE_LASER = pygame.transform.scale(pygame.image.load(os.path.join("assets", "blue_laser.png")), (40,40))
 # Bernie mask
-Mask = pygame.transform.scale(pygame.image.load(os.path.join("assets", "mask.png")), (20,20))
-Syringe = pygame.transform.scale(pygame.image.load(os.path.join("assets", "syringe.png")), (20,20))
+Mask = pygame.transform.scale(pygame.image.load(os.path.join("assets", "mask.png")), (40,40))
+Syringe = pygame.transform.scale(pygame.image.load(os.path.join("assets", "syringe.png")), (50,50))
 
 # Background
 BG = pygame.transform.scale(pygame.image.load(os.path.join("assets", "background-black.png")), (WIDTH, HEIGHT))
