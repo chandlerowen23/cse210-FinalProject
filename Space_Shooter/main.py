@@ -21,7 +21,8 @@ RED_LASER = pygame.image.load(os.path.join("assets", "pixel_laser_red.png"))
 GREEN_LASER = pygame.image.load(os.path.join("assets", "pixel_laser_green.png"))
 BLUE_LASER = pygame.image.load(os.path.join("assets", "pixel_laser_blue.png"))
 # Bernie mask
-YELLOW_LASER = pygame.transform.scale(pygame.image.load(os.path.join("assets", "mask.png")), (20,20))
+Mask = pygame.transform.scale(pygame.image.load(os.path.join("assets", "mask.png")), (20,20))
+Syringe = pygame.transform.scale(pygame.image.load(os.path.join("assets", "syringe.png")), (20,20))
 
 # Background
 BG = pygame.transform.scale(pygame.image.load(os.path.join("assets", "background-black.png")), (WIDTH, HEIGHT))
@@ -100,12 +101,13 @@ class Player(Ship):
     def __init__(self, x, y, health=100):
         super().__init__(x, y, health)
         self.ship_img = YELLOW_SPACE_SHIP
-        self.laser_img = YELLOW_LASER
+        self.laser_img = Mask
         self.mask = pygame.mask.from_surface(self.ship_img)
         self.max_health = health
 
     def move_lasers(self, vel, objs):
         self.cooldown()
+        self.throw_random()
         for laser in self.lasers:
             laser.move(vel)
             if laser.off_screen(HEIGHT):
@@ -120,6 +122,13 @@ class Player(Ship):
     def draw(self, window):
         super().draw(window)
         self.healthbar(window)
+    
+    def throw_random(self):
+        x = random.randint(0,11)
+        if x % 2 == 0:
+            self.laser_img = Syringe
+        else:
+            self.laser_img = Mask
 
     def healthbar(self, window):
         pygame.draw.rect(window, (255,0,0), (self.x, self.y + self.ship_img.get_height() + 10, self.ship_img.get_width(), 10))
@@ -266,7 +275,7 @@ def info_menu():
         WIN.blit(text_label4, (WIDTH/2 - text_label4.get_width()/2, 340))
         text_label5 = text_font.render("Will you rise to the challenge?", 1, White)
         WIN.blit(text_label5, (WIDTH/2 - text_label5.get_width()/2, 370))
-        text_label6 = text_font.render("Movement: W = Up, A = Left, S = Down, D = Right", 1, White)
+        text_label6 = text_font.render("Movement: W = Up, A = Left, S = Down, D = Right, Space = Shoot", 1, White)
         WIN.blit(text_label6, (WIDTH/2 - text_label6.get_width()/2, 400))
         exit_label = text_font.render("Press the Mouse to return to menu..", 1, White)
         WIN.blit(exit_label, (WIDTH/2 - exit_label.get_width()/2, 650))
