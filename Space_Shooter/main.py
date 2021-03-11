@@ -20,7 +20,8 @@ YELLOW_SPACE_SHIP = pygame.image.load(os.path.join("assets", "bernie.png"))
 RED_LASER = pygame.image.load(os.path.join("assets", "pixel_laser_red.png"))
 GREEN_LASER = pygame.image.load(os.path.join("assets", "pixel_laser_green.png"))
 BLUE_LASER = pygame.image.load(os.path.join("assets", "pixel_laser_blue.png"))
-YELLOW_LASER = pygame.image.load(os.path.join("assets", "pixel_laser_yellow.png"))
+# Bernie mask
+YELLOW_LASER = pygame.transform.scale(pygame.image.load(os.path.join("assets", "mask.png")), (20,20))
 
 # Background
 BG = pygame.transform.scale(pygame.image.load(os.path.join("assets", "background-black.png")), (WIDTH, HEIGHT))
