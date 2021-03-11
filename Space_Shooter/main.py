@@ -208,7 +208,11 @@ def main():
         clock.tick(FPS)
         redraw_window()
 
-        if lives <= 0 or player.health <= 0:
+        if player.health <= 0 and lives >= 1:
+            lives -= 1
+            player.health = 100
+        
+        if lives <= 0:
             lost = True
             lost_count += 1
 
