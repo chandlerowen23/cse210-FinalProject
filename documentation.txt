@@ -10,7 +10,7 @@ main.py
 Who is doing what?
 
 Owen worked on the messages in the screen such as the welcome screen and instructions, and also worked with the images and sound.
-Christian created the sprites class and worked connecting all the files.
+Christian wroked on the sprites class and worked connecting all the files.
 
 Problem and Task:
 
