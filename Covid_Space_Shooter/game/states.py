@@ -146,6 +146,6 @@ class States:
                 if event.type == pygame.QUIT:
                     run = False
                 if event.type == pygame.MOUSEBUTTONDOWN:
-                    main_menu()
+                    return
 
 
