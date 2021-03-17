@@ -1,6 +1,11 @@
 What is in the project?	 
 
-We made a prototype of the game. The prototype has a welcome screen, also the user is able to play. The shooter has three lives and in each live, the shooter is able to receive 8 shots. When the shooter runs out of lives the game finishes with a “you lost” message on the screen. The enemies are the virus and they also are able to shot the shooter. We use these classes so far:	 
+We made a prototype of the game. 
+The prototype has a welcome screen, also the user is able to play. 
+The shooter has three lives and in each live, the shooter is able to receive 8 shots. 
+When the shooter runs out of lives the game finishes with a “you lost” message on the screen. 
+The enemies are the virus and they also are able to shot the shooter. 
+We use these classes so far:	 
   
 constants.py	 
   
@@ -13,14 +18,17 @@ main.py
  	
 Who is doing what?	 
   
-Owen worked on the messages on the screen such as the welcome screen and instructions and also worked with the images and sound.	 
+Chandler Owen worked on the messages on the screen such as the welcome screen and instructions 
+Also worked with the images and sound.	 
   
 Christian worked on the sprites class and worked connecting all the files.	 
   
  	
 Problem and Task:	 
+
+Add sound for when you are hit by the enemy
   
-We need to work on the game over screen.	 
+We need to work on the game over screen. 	 
   
 We need to create more classes, take some functions in states class, and put them in other files.	 
   
