@@ -70,9 +70,8 @@ class States:
             
             if lives <= 0:
                 lost = True
+                lives = 0
 
-            if lost:
-                States.game_over
 
             if len(enemies) == 0:
                 level += 1
