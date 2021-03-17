@@ -33,6 +33,7 @@ BG = pygame.transform.scale(pygame.image.load(os.path.join("assets", "background
 
 #Colors
 White = (255,255,255)
+Red = (128,0,0)
 
 
 # Background Sound
