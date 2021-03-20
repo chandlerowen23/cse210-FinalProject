@@ -10,7 +10,7 @@ pygame.font.init()
 from game import constants
 from game.sprites import Player, Enemy
 from game.stages import Stage
-from game.setup import Setup
+from game.setup_text import Setup
 from game import main
 
 
@@ -18,7 +18,6 @@ class States:
     
     def __init__(self):
         self.setup = Setup()
-
 
 
     def collide(self, obj1, obj2):
