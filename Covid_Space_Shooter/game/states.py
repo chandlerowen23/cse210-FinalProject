@@ -10,7 +10,7 @@ pygame.font.init()
 from game import constants
 from game.sprites import Player, Enemy
 from game.stages import Stage
-from game.setup_text import Setup
+from game.info_text import Setup
 from game import main
 
 
@@ -75,8 +75,8 @@ class States:
                 set_level = level
 
             if lost:
-                States.game_over()
-                if States.game_over() == True:
+                States.game_over(self)
+                if States.game_over(self) == True:
                     self.main()
 
             if len(enemies) == 0:
