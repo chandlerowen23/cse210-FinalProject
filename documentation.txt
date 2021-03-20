@@ -38,7 +38,7 @@ We need to work to display the high score at the end of the game.
 We added two more files:
 
 -stages.py
-  This file contains the function to get bew enemies and also to get more enemies when the user get a new level.
+  This file contains the functions to get new enemies and also the function to get more enemies when the user get up to a new level.
 -info_text.py
   It contains all the text configuration and the text for the introduction text and the game over text
 
