@@ -30,10 +30,7 @@ class States:
         run = True
         FPS = 60
         lives = 3
-        
         main_font = self.setup.get_main_font()
-        lost_font = self.setup.get_lost_font()
-
         enemies = []
         stage =Stage()
         enemies = stage.get_enemies()
