@@ -61,12 +61,7 @@ class States:
             #--stages-----
             stage.get_new_enemy()
 
-            player.draw(constants.WIN)
-
-            # if lost:
-            #     lost_label = lost_font.render("You Lost!!", 1, (255,255,255))
-            #     constants.WIN.blit(lost_label, (constants.WIDTH/2 - lost_label.get_width()/2, 350))
-                
+            player.draw(constants.WIN) 
 
             pygame.display.update()
 
@@ -137,7 +132,6 @@ class States:
                     return
         
     def game_over(self):
-        
         run = True
         while run:
             self.setup.game_over_text()

@@ -46,8 +46,3 @@ class Setup():
     def get_lost_font(self):
         return self.lost_font
     
-    def get_text_font(self):
-        return self.text_font
-    
-    def get_title_font(self):
-        return self.title_font
