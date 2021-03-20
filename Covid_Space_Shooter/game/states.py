@@ -136,19 +136,11 @@ class States:
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     return
         
-    def game_over():
-        title_font = pygame.font.SysFont("Comicsans", 50)
-        text_font = pygame.font.SysFont("comicsans",30)
+    def game_over(self):
+        
         run = True
         while run:
-            constants.WIN.blit(constants.BG, (0,00))
-            title_label = title_font.render("Game Over", 1, constants.Red)
-            constants.WIN.blit(title_label, (constants.WIDTH/2 - title_label.get_width()/2, 100))
-            text_label = text_font.render("Would you like to play again? (Enter)", 1, constants.White)
-            constants.WIN.blit(text_label, (constants.WIDTH/2 - text_label.get_width()/2, 250))
-            text_label1 = text_font.render("Press the mouse to return to menu..", 1, constants.White)
-            constants.WIN.blit(text_label1, (constants.WIDTH/2 - text_label.get_width()/2, 650))
-            pygame.display.update()
+            self.setup.game_over_text()
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     run = False
