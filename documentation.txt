@@ -27,6 +27,8 @@ Christian worked on the sprites class and worked connecting all the files.	Also 
 Problem and Task:	 
 
 Add sound for when you are hit by the enemy	  - Chandler
+
+Adding boss level every five stages would be fun
   
 We need to create more classes, take some functions in states class, and put them in other files.	 
   
