@@ -19,16 +19,14 @@ main.py
 Who is doing what?	 
   
 Chandler Owen worked on the messages on the screen such as the welcome screen and instructions 
-Also worked with the images and sound.	 
+Also worked with the images and sound. then completed the game over screen.
   
-Christian worked on the sprites class and worked connecting all the files.	 
+Christian worked on the sprites class and worked connecting all the files.	Also added the info_text.py and states.py
   
  	
 Problem and Task:	 
 
-Add sound for when you are hit by the enemy
-  
-We need to work on the game over screen. 	 
+Add sound for when you are hit by the enemy	  - Chandler
   
 We need to create more classes, take some functions in states class, and put them in other files.	 
   

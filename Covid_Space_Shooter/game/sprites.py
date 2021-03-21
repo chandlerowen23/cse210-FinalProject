@@ -2,7 +2,9 @@
 import pygame
 from game import constants
 import random
- 
+import os
+from pygame import mixer
+
 class Laser:
         def __init__(self, x, y, img):
             self.x = x
@@ -54,6 +56,8 @@ class Ship:
             elif laser.collision(obj):
                 obj.health -= 10
                 self.lasers.remove(laser)
+                damage = mixer.Sound(os.path.join("assets", "damage.mp3"))
+                damage.play()
 
     def cooldown(self):
         if self.cool_down_counter >= self.COOLDOWN:

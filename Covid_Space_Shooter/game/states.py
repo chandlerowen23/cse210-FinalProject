@@ -111,6 +111,8 @@ class States:
                 if self.collide(enemy, player):
                     player.health -= 10
                     enemies.remove(enemy)
+                    damage = mixer.Sound(os.path.join("assets", "damage.mp3"))
+                    damage.play()
                 elif enemy.y + enemy.get_height() > constants.HEIGHT:
                     lives -= 1
                     enemies.remove(enemy)
