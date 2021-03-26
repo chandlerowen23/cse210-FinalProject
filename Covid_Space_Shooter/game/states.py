@@ -11,6 +11,8 @@ from game import constants
 from game.sprites import Player, Enemy
 from game.stages import Stage
 from game.info_text import Setup
+from game.collide import Collide
+from game.events import Event
 from game import main
 
 
@@ -18,12 +20,10 @@ class States:
     
     def __init__(self):
         self.setup = Setup()
+        self.collition = Collide()
+        self.event = Event()
+        self.stage =Stage()
 
-
-    def collide(self, obj1, obj2):
-        offset_x = obj2.x - obj1.x
-        offset_y = obj2.y - obj1.y
-        return obj1.mask.overlap(obj2.mask, (offset_x, offset_y)) != None
 
     def main(self):
         run = True
@@ -31,15 +31,16 @@ class States:
         lives = 3
         main_font = self.setup.get_main_font()
         enemies = []
-        stage =Stage()
-        enemies = stage.get_enemies()
+        
+        enemies = self.stage.get_enemies()
         level = 0
         enemy_vel = 1
 
         player_vel = 5
         laser_vel = 5
+        score = 0
 
-        player = Player(300, 630)
+        player = Player(350, 630)
 
         clock = pygame.time.Clock()
 
@@ -50,12 +51,14 @@ class States:
             # draw text
             lives_label = main_font.render(f"Lives: {lives}", 1, (255,255,255))
             level_label = main_font.render(f"Level: {level}", 1, (255,255,255)) 
+            score_label = main_font.render(f"Score: {score}", 1, (255,255,255)) 
 
             constants.WIN.blit(lives_label, (10, 10))
             constants.WIN.blit(level_label, (constants.WIDTH - level_label.get_width() - 10, 10))
-
+            constants.WIN.blit(score_label, (10, 40))
+          
             #--stages-----
-            stage.get_new_enemy()
+            self.stage.get_new_enemy()
 
             player.draw(constants.WIN) 
 
@@ -81,13 +84,17 @@ class States:
 
             if len(enemies) == 0:
                 level += 1
-                stage.get_more_enemies()
+                self.stage.get_more_enemies()
                 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     quit()
 
             keys = pygame.key.get_pressed()
+            
+            
+            
+
             if keys[pygame.K_a] and player.x - player_vel > 0: # left
                 player.x -= player_vel
             if keys[pygame.K_d] and player.x + player_vel + player.get_width() < constants.WIDTH: # right
@@ -100,25 +107,34 @@ class States:
                 player.shoot()
                 bullet_Sound = mixer.Sound(os.path.join("assets", "laser.wav"))
                 bullet_Sound.play()
-
+          
+            
             for enemy in enemies[:]:
                 enemy.move(enemy_vel)
                 enemy.move_lasers(laser_vel, player)
+                
 
                 if random.randrange(0, 2*60) == 1:
                     enemy.shoot()
+                    
+                if player.get_collision_enemy() > 0:
+                    score = player.get_collision_enemy()
+                    
 
-                if self.collide(enemy, player):
+                if self.collition.collide(enemy, player):
                     player.health -= 10
                     enemies.remove(enemy)
-                    damage = mixer.Sound(os.path.join("assets", "damage.mp3"))
+                    damage = mixer.Sound(os.path.join("assets", "damage.wav"))
                     damage.play()
+                    
                 elif enemy.y + enemy.get_height() > constants.HEIGHT:
                     lives -= 1
                     enemies.remove(enemy)
+                    
 
             player.move_lasers(-laser_vel, enemies)
-
+            
+ 
     def info_menu(self):
         run = True
         while run:

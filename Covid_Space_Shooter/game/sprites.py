@@ -4,6 +4,9 @@ from game import constants
 import random
 import os
 from pygame import mixer
+from pathlib import Path
+DIR = Path(__file__).resolve().parent
+DIRROOT = DIR.resolve().parent
 
 class Laser:
         def __init__(self, x, y, img):
@@ -56,7 +59,7 @@ class Ship:
             elif laser.collision(obj):
                 obj.health -= 10
                 self.lasers.remove(laser)
-                damage = mixer.Sound(os.path.join("assets", "damage.mp3"))
+                damage = mixer.Sound(os.path.join("assets", "damage.wav"))
                 damage.play()
 
     def cooldown(self):
@@ -85,6 +88,7 @@ class Player(Ship):
         self.laser_img = constants.Mask
         self.mask = pygame.mask.from_surface(self.ship_img)
         self.max_health = health
+        self.collision_enemy = 0
 
     def move_lasers(self, vel, objs):
         self.cooldown()
@@ -97,8 +101,13 @@ class Player(Ship):
                 for obj in objs:
                     if laser.collision(obj):
                         objs.remove(obj)
+                        self.collision_enemy += 1
+                        print('COLLITION')
                         if laser in self.lasers:
                             self.lasers.remove(laser)
+                            
+    def get_collision_enemy(self):
+        return self.collision_enemy
 
     def draw(self, window):
         super().draw(window)
