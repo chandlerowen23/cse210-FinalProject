@@ -26,7 +26,9 @@ Christian worked on the sprites class and worked connecting all the files.	Also 
  	
 Problem and Task:	 
 
-Add sound for when you are hit by the enemy	  - Chandler
+Add sound for when you are hit by the enemy	  - Chandler, completed
+
+Add Sound for when the enemy is hit by mask or syringe - Chandler, Complete
 
 Adding boss level every five stages would be fun
   
