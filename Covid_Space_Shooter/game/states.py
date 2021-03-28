@@ -20,7 +20,6 @@ class States:
 
     def main(self):
         run = True
-        FPS = 60
         lives = 3
         main_font = self.setup.get_main_font()
         enemies = []
@@ -57,7 +56,7 @@ class States:
             pygame.display.update()
 
         while run:
-            clock.tick(FPS)
+            clock.tick(constants.FPS)
             redraw_window()
 
             if player.health <= 0 and lives >= 1:

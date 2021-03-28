@@ -5,6 +5,7 @@ from pathlib import Path
 DIR = Path(__file__).resolve().parent
 DIRROOT = DIR.resolve().parent
 
+FPS = 60
 
 pygame.init()
 
