@@ -12,7 +12,7 @@ from game.sprites import Player, Enemy
 from game.stages import Stage
 from game.info_text import Setup
 from game.collide import Collide
-from game.events import Event
+#from game.events import Event
 from game import main
 
 
@@ -21,7 +21,7 @@ class States:
     def __init__(self):
         self.setup = Setup()
         self.collition = Collide()
-        self.event = Event()
+        #self.event = Event()
         self.stage =Stage()
 
 

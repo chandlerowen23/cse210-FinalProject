@@ -102,7 +102,9 @@ class Player(Ship):
                     if laser.collision(obj):
                         objs.remove(obj)
                         self.collision_enemy += 1
-                        print('COLLITION')
+                        #print('COLLITION')
+                        pop_Sound = mixer.Sound(os.path.join("assets", "pop.wav"))
+                        pop_Sound.play()
                         if laser in self.lasers:
                             self.lasers.remove(laser)
                             
