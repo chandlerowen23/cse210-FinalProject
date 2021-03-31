@@ -6,6 +6,7 @@ from game.sprites import Player, Enemy
 from game.stages import Stage
 from game.info_text import Setup
 from game.collide import Collide
+from game.redraw_window import Redraw_window
 from game import sounds
 from game import main
 
@@ -16,6 +17,7 @@ class States:
         self.setup = Setup()
         self.collition = Collide()
         self.stage =Stage()
+        self.redraw_window = Redraw_window()
 
 
     def main(self):
@@ -37,18 +39,15 @@ class States:
         clock = pygame.time.Clock()
 
         lost = False
+        
+
 
         def redraw_window():
-            constants.WIN.blit(constants.BG, (0,0))
-            # draw text
-            lives_label = main_font.render(f"Lives: {lives}", 1, (255,255,255))
-            level_label = main_font.render(f"Level: {level}", 1, (255,255,255)) 
-            score_label = main_font.render(f"Score: {score}", 1, (255,255,255)) 
 
-            constants.WIN.blit(lives_label, (10, 10))
-            constants.WIN.blit(level_label, (constants.WIDTH - level_label.get_width() - 10, 10))
-            constants.WIN.blit(score_label, (10, 40))
-          
+            
+            self.redraw_window.variables_window(lives,level,score)
+            self.redraw_window.get_redraw()
+    
             #--stages-----
             self.stage.get_new_enemy()
             player.draw(constants.WIN) 
