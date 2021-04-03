@@ -45,3 +45,12 @@ We added two more files:
   It contains all the text configuration and the text for the introduction text and the game over text
 
 We also got the game_over text to work and with the option to keepplaying or returnn to menu
+
+
+-------------------------------------------------------- WEEK APRIL 3------------------------------------------------------
+A new class: redraw_window
+This file contains all the text we use when the user is playing the game
+
+
+
+
