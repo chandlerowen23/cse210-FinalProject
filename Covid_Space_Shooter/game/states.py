@@ -21,24 +21,18 @@ class States:
 
 
     def main(self):
-        run = True
+        self._run = True
+        self._lost = False
         lives = 3
-        main_font = self.setup.get_main_font()
         enemies = []
-        
         enemies = self.stage.get_enemies()
         level = 0
         enemy_vel = 1
-
         player_vel = 5
         laser_vel = 5
         score = 0
-
         player = Player(350, 630)
-
         clock = pygame.time.Clock()
-
-        lost = False
         
 
 
@@ -54,7 +48,7 @@ class States:
 
             pygame.display.update()
 
-        while run:
+        while self._run:
             clock.tick(constants.FPS)
             redraw_window()
 
@@ -63,11 +57,11 @@ class States:
                 player.health = 100
             
             if lives <= 0:
-                lost = True
+                self._lost = True
                 lives = 0
                 set_level = level
 
-            if lost:
+            if self._lost:
                 States.game_over(self)
                 if States.game_over(self) == True:
                     self.main()
@@ -122,22 +116,22 @@ class States:
             
  
     def info_menu(self):
-        run = True
-        while run:
+        
+        while self._run:
             self.setup.get_instructions()
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    run = False
+                    self._run = False
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     return
         
     def game_over(self):
-        run = True
-        while run:
+      
+        while self._run:
             self.setup.game_over_text()
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    run = False
+                    self._run = False
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     main.main_menu()
                 if event.type == pygame.KEYDOWN:
